@@ -11,6 +11,10 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
+        Vector2 position;
+        Vector2 velocity;
+        float speed;
+        float radius = 20;
 
 
         /// <summary>
@@ -18,7 +22,9 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
-
+            Window.SetSize(600, 600);
+            Window.SetTitle("Bubble Struggle");
+            Window.TargetFPS = 60;
         }
 
         /// <summary>
