@@ -12,7 +12,7 @@ namespace lastname_firstname_template_v1_3_3
     {
         Vector2 position;
         Vector2 direction;
-        float speed;
+        float speed = 100;
         float radius;
         Color colour;
         bool atEdgeOfScreen;
@@ -23,7 +23,27 @@ namespace lastname_firstname_template_v1_3_3
             radius = r;
             colour = c;
             //Random direction
-            direction = Random.Direction; //why am i getting an error.
+            direction = MohawkGame2D.Random.Direction(); 
+        }
+
+        public void Render()
+        {
+            Draw.FillColor = colour;
+            Draw.Circle(position, radius);
+
+        }
+        //Ball differs a little from the original game, I want the ball to bounce around the sceen instead of just using gravity
+        public void Update()
+        {
+            //edits the balls speed
+            speed += Time.DeltaTime * 3;
+            position += direction * speed * Time.DeltaTime;
+
+            //Edge of screen checks
+            bool leftEdge = position.X <= 0;
+            bool rightEdge = position.X >= Window.Width;
+            bool topEdge = position.Y <= 0;
+            bool bottomEdge = position.Y >= Window.Height;
         }
     }
 }
