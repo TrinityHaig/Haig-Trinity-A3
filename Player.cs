@@ -24,5 +24,10 @@ namespace lastname_firstname_template_v1_3_3
             Draw.FillColor = Color.Black;
             Draw.Rectangle(position,size);
         }
+        //player will use similar collision checks to bubble but only for the left and right.
+        public void Update()
+        {
+            
+        }
     }
 }
